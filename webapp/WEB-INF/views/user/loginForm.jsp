@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,10 +15,14 @@
 		
 		
 		<!-- 메인 해더 -->
+		<c:import url="/WEB-INF/views/includes/main-header.jsp"></c:import>
 		
+		<br>
 		
 		<div id="loginForm">
+		
 			<form method="post" action="${pageContext.request.contextPath}/user/login">
+			
 	      		<table>
 			      	<colgroup>
 						<col style="width: 100px;">
@@ -33,10 +39,11 @@
 		      		</tr> 
 		      		<tr>
 		      			<td colspan="2" id="tdMsg" colspan="2">
-		      				<span>아이디 또는 비번을 확인해 주세요.</span>
+		      				<span>아이디 또는 패스워드를 확인해 주세요.</span>
 		      			</td>
 		      		</tr> 
 		      	</table>
+		      	
 	      		<div id="btnArea">
 					<button class="btn" type="submit" >로그인</button>
 				</div>
@@ -45,8 +52,10 @@
 		
 		</div>
 		
-		<!-- 메인 푸터  자리-->
+		<br><br><br><br><br>
 		
+		<!-- 메인 푸터  자리-->
+		<c:import url="/WEB-INF/views/includes/main-footer.jsp"></c:import>
 		
 	</div>
 	
