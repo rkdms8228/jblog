@@ -24,7 +24,7 @@
 		
 			<br>
 			
-			<form id="joinForm" method="post" action="${pageContext.request.contextPath}/user/join">
+			<form id="joinForm" method="post" action="${pageContext.request.contextPath}/user/join/${authUser.id}">
 				<table>
 			      	<colgroup>
 						<col style="width: 100px;">
@@ -83,6 +83,7 @@
 
 	//아이디 중복 체크 (아이디 중복일 때 = 0 , 중복이 아닐 때 = 1 )
 	var idcheck = 0;
+	var ick = false;
 	
 	//idCheck 버튼을 클릭했을 때 
 	$("#joinForm").on("submit", function() {
@@ -95,6 +96,9 @@
 		
 		if (joinId == "" || joinId == null) { //아이디
 		    alert("아이디를 입력해 주세요.");
+		    return false;
+		}else if (ick == false) { //중복 확인
+		    alert("아이디 중복 확인해 주세요.");
 		    return false;
 		}else if (joinPw == "" || joinPw == null) { //패스워드   
 		    alert("패스워드를 입력해 주세요.");
@@ -143,6 +147,7 @@
 				    
 				    //아이디가 중복되지 않으면  idcheck = 1 
 				    idcheck = 1;
+				    ick = true;
 				    
 				}
 			       
