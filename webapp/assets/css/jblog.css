@@ -82,12 +82,12 @@ a:hover {text-decoration: none; color: #000000; }
 /* 메인-해더 */
 #center-content .logo			{width: 163px; height: 104px; margin: 50px auto 0px auto; }
 #center-content .menu			{width: 160px; height: 20px; margin: 0 auto 50px auto;; text-align:center; }
-#center-content .menu li		{width: 80px;margin: 0px 0px 0px 0px ; float: left; }
+#center-content .menu li		{width: 80px; margin: 0px 0px 0px 0px; float: left; }
 
 
 /* 메인-푸터 */
 #center-content #footer {height: 40px; padding:0px 10px 0px 10px; background:#F0F0F0; }
-#center-content #footer li {margin-right: 20px; paddign: 10px; float: left; font-size: 13px;  line-height:40px;}
+#center-content #footer li {margin-right: 20px; padding: 10px; float: left; font-size: 13px;  line-height:40px;}
 div#footer		{ color:#666 }
 
 
@@ -100,7 +100,7 @@ div#footer		{ color:#666 }
 															 font-size: 18px; 
 															 background-color: #254EDB; 
 															 color: #ffffff;}
-#center-content #search-form fieldset				{ margin:10px 0 10px 0px;}
+#center-content #search-form fieldset				{ margin:10px 0 10px 0px; border: none;}
 #center-content #search-form input[type='radio']	{ margin-right:20px; }
 
 
