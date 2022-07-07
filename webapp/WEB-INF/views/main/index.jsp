@@ -16,11 +16,15 @@
 		<!--메인 해더 자리 -->
 		<c:import url="/WEB-INF/views/includes/main-header.jsp"></c:import>
 		
+		<br>
+		
 		<form id="search-form">
 			<fieldset>
 				<input type="text" name="keyword" >
 				<button id="btnSearch" type="submit" >검색</button>
 			</fieldset>
+			
+			<br>
 			
 			<fieldset>
 				<label for="rdo-title">블로그 제목</label> 
