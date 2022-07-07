@@ -27,7 +27,7 @@
 					<!-- 사용자업로드 이미지 -->
 					<%-- <img id="proImg" src=""> --%>
 					
-					<div id="nick">${authUser.userName}(${authUser.id}) 님</div>
+					<div id="nick">${blogMap.USERNAME}(${blogMap.ID}) 님</div>
 				</div>
 				<div id="cate">
 					<div class="text-left">
