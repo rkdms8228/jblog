@@ -11,13 +11,15 @@
 		]]>
 	</insert>
 	
-	<select id="main" parameterType="String" resultType="BlogVo">
+	<select id="main" parameterType="String" resultType="map">
 		<![CDATA[
-			select id
-          		   , blogTitle
-        		   , logoFile
-			from blog
-			where id = #{id}
+			select b.id
+          		   , b.blogTitle
+        		   , b.logoFile
+        		   , u.userName
+			from blog b, users u
+			where b.id = u.id
+			and b.id = #{id}
 		]]>
 	</select>
 
