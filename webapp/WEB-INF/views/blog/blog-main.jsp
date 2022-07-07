@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>JBlog</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/jblog.css">
-<script type="text/javascript" src="${pageContext.request.contextPath }/assets/js/jquery/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
 </head>
 
 <body>
@@ -27,7 +27,7 @@
 					<!-- 사용자업로드 이미지 -->
 					<%-- <img id="proImg" src=""> --%>
 					
-					<div id="nick">정우성(hijava)님</div>
+					<div id="nick">${authUser.userName}(${authUser.id}) 님</div>
 				</div>
 				<div id="cate">
 					<div class="text-left">
