@@ -1,5 +1,7 @@
 package com.javaex.dao;
 
+import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -30,11 +32,13 @@ public class BlogDao {
 	}
 	
 	//블로그 메인화면
-	public int main(String id) {
+	public Map<String, Object> main(String id) {
 		
 		System.out.println("BlogDao > make");
 		
-		return sqlSession.selectOne("blog.main", id);
+		Map<String, Object> blogMap =  sqlSession.selectOne("blog.main", id);
+		
+		return blogMap;
 		
 	}
 
