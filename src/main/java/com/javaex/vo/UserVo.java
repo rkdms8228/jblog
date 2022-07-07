@@ -3,28 +3,30 @@ package com.javaex.vo;
 public class UserVo {
 	
 	//필드
-	private int no;
+	private int userNo;
 	private String id;
 	private String password;
 	private String userName;
+	private String regDate;
 	
 	//생성자
 	public UserVo() {}
 	
-	public UserVo(int no, String id, String password, String userName) {
-		this.no = no;
+	public UserVo(int userNo, String id, String password, String userName, String regDate) {
+		this.userNo = userNo;
 		this.id = id;
 		this.password = password;
 		this.userName = userName;
+		this.regDate = regDate;
 	}
 	
 	//메소드-gs
-	public int getNo() {
-		return no;
+	public int getUserNo() {
+		return userNo;
 	}
 
-	public void setNo(int no) {
-		this.no = no;
+	public void setUserNo(int userNo) {
+		this.userNo = userNo;
 	}
 
 	public String getId() {
@@ -51,10 +53,19 @@ public class UserVo {
 		this.userName = userName;
 	}
 	
+	public String getRegDate() {
+		return regDate;
+	}
+	
+	public void setRegDate(String regDate) {
+		this.regDate = regDate;
+	}
+	
 	//메소드-일반
 	@Override
 	public String toString() {
-		return "UserVo [no=" + no + ", id=" + id + ", password=" + password + ", userName=" + userName + "]";
+		return "UserVo [userNo=" + userNo + ", id=" + id + ", password=" + password + ", userName=" + userName + ", regDate="
+				+ regDate + "]";
 	}
 
 }
