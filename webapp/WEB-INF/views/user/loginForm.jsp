@@ -21,7 +21,7 @@
 		
 		<div id="loginForm">
 		
-			<form method="post" action="${pageContext.request.contextPath}/user/login">
+			<form action="${pageContext.request.contextPath}/user/login" method="get">
 			
 	      		<table>
 			      	<colgroup>
@@ -41,7 +41,10 @@
 		      			<td colspan="2" id="tdMsg" colspan="2">
 		      				<span>아이디 또는 패스워드를 확인해 주세요.</span>
 		      			</td>
-		      		</tr> 
+		      		</tr>
+		      		<c:if test="${param.result == 'fail'}">
+						<p>로그인에 실패하셨습니다.<br>다시 입력해 주십시오.</p>
+					</c:if>
 		      	</table>
 		      	
 	      		<div id="btnArea">
