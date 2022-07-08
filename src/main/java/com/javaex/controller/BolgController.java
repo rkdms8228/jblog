@@ -37,5 +37,18 @@ public class BolgController {
 		return "blog/blog-main";
 		
 	}
+	
+	//내 블로그 관리
+	@RequestMapping(value="/{id}/admin/basic", method={RequestMethod.GET, RequestMethod.POST})
+	public String adminBasic(Model model, @PathVariable String id) {
+		
+		System.out.println("BolgController > adminBasic");
+		
+		Map<String, Object> blogMap = blogService.main(id);
+		model.addAttribute("blogMap", blogMap);
+		
+		return "blog/admin/blog-admin-basic";
+		
+	}
 
 }
