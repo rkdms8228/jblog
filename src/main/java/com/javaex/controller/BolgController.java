@@ -31,6 +31,7 @@ public class BolgController {
 		
 		System.out.println("BolgController > blogMain");
 		
+		//해더 이름 띄우기
 		Map<String, Object> blogMap = blogService.main(id);
 		model.addAttribute("blogMap", blogMap);
 		
@@ -44,7 +45,8 @@ public class BolgController {
 		
 		System.out.println("BolgController > adminBasic");
 		
-		Map<String, Object> blogMap = blogService.main(id);
+		//해더 이름 띄우기(버튼 여러번 클릭하면 id값이 날아가기 때문에 따로 만들어 줌)
+		Map<String, Object> blogMap = blogService.header(id);
 		model.addAttribute("blogMap", blogMap);
 		
 		return "blog/admin/blog-admin-basic";
