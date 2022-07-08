@@ -22,5 +22,15 @@
 			and b.id = #{id}
 		]]>
 	</select>
+	
+	<!-- 기본 설정 변경 -->
+	<update id="upload" parameterType="BlogVo">
+		<![CDATA[
+			update blog
+			set blogTitle = #{blogTitle}
+				, logoFile = #{logoFile}
+			where id = #{id}
+		]]>
+	</update>
 
 </mapper>

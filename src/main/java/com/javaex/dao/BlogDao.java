@@ -37,5 +37,16 @@ public class BlogDao {
 		return sqlSession.selectOne("blog.main", id);
 		
 	}
+	
+	//기본 설정 변경
+	public int upload(BlogVo blogVo) {
+		
+		System.out.println("BlogDao > upload");
+		
+		int count = sqlSession.update("blog.upload", blogVo);
+		
+		return count;
+		
+	}
 
 }

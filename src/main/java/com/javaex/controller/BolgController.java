@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.javaex.service.BlogService;
 
@@ -55,11 +57,15 @@ public class BolgController {
 	
 	//기본 설정 변경
 	@RequestMapping(value="/{id}/admin/upload", method={RequestMethod.GET, RequestMethod.POST})
-	public String upload(Model model, @PathVariable String id) {
+	public String upload(@PathVariable String id
+						 ,@RequestParam("blogTitle") String blogTitle
+						 ,@RequestParam("file") MultipartFile file) {
 		
 		System.out.println("BolgController > upload");
 		
-		return "";
+		blogService.upload(id, blogTitle, file);
+		
+		return "redirect:/{id}/admin/basic";
 		
 	}
 
