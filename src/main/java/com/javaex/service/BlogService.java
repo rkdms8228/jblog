@@ -1,11 +1,13 @@
 package com.javaex.service;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.javaex.dao.BlogDao;
+import com.javaex.vo.BlogVo;
 
 @Service
 public class BlogService {
@@ -26,7 +28,10 @@ public class BlogService {
 		
 		System.out.println("BlogService > main");
 		
-		Map<String, Object> blogMap = blogDao.main(id);
+		BlogVo blogVo = blogDao.main(id);
+		
+		Map<String, Object> blogMap = new HashMap<String, Object>();
+		blogMap.put("blogVo", blogVo);
 		
 		return blogMap;
 		
