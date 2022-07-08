@@ -28,10 +28,20 @@ public class BlogService {
 		
 		System.out.println("BlogService > main");
 		
-		BlogVo blogVo = blogDao.main(id);
+		Map<String, Object> blogMap = new HashMap<String, Object>();
+		blogMap.put("blogVo", blogDao.main(id));
+		
+		return blogMap;
+		
+	}
+	
+	//내 블로그 관리
+	public Map<String, Object> header(String id) {
+		
+		System.out.println("BlogService > header");
 		
 		Map<String, Object> blogMap = new HashMap<String, Object>();
-		blogMap.put("blogVo", blogVo);
+		blogMap.put("blogVo", blogDao.header(id));
 		
 		return blogMap;
 		
