@@ -4,14 +4,14 @@
 
 <mapper namespace="blog">
 
-	<insert id="make" parameterType="com.javaex.vo.BlogVo">
+	<insert id="make" parameterType="String">
 		<![CDATA[
 			insert into blog
 			values (#{id}, #{blogTitle}, #{logoFile})
 		]]>
 	</insert>
 	
-	<select id="main" parameterType="String" resultType="map">
+	<select id="main" parameterType="String" resultType="BlogVo">
 		<![CDATA[
 			select b.id
           		   , b.blogTitle
