@@ -22,14 +22,5 @@
 			and b.id = #{id}
 		]]>
 	</select>
-	
-	<select id="header" parameterType="String" resultType="BlogVo">
-		<![CDATA[
-			select id
-          		   , blogTitle
-			from blog
-			where id = #{id}
-		]]>
-	</select>
 
 </mapper>

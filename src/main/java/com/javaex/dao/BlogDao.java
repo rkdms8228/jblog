@@ -37,14 +37,5 @@ public class BlogDao {
 		return sqlSession.selectOne("blog.main", id);
 		
 	}
-	
-	//내 블로그 관리
-	public BlogVo header(String id) {
-		
-		System.out.println("BlogDao > header");
-		
-		return sqlSession.selectOne("blog.header", id);
-		
-	}
 
 }
