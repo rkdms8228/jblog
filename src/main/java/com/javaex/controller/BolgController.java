@@ -52,5 +52,15 @@ public class BolgController {
 		return "blog/admin/blog-admin-basic";
 		
 	}
+	
+	//기본 설정 변경
+	@RequestMapping(value="/{id}/admin/upload", method={RequestMethod.GET, RequestMethod.POST})
+	public String upload(Model model, @PathVariable String id) {
+		
+		System.out.println("BolgController > upload");
+		
+		return "";
+		
+	}
 
 }
