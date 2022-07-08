@@ -57,7 +57,7 @@ public class BlogService {
 		String exName = orgName.substring(orgName.lastIndexOf("."));
 		
 		//저장 파일명
-		String saveName = "/upload" + System.currentTimeMillis() + UUID.randomUUID().toString() + exName;
+		String saveName = System.currentTimeMillis() + UUID.randomUUID().toString() + exName;
 		
 		//파일 경로(디렉토리 + 저장 파일명)
 		String filePath = saveDir + "\\" + saveName;
@@ -66,7 +66,7 @@ public class BlogService {
 		BlogVo blogVo = new BlogVo();
 		blogVo.setId(id);
 		blogVo.setBlogTitle(blogTitle);
-		blogVo.setLogoFile(saveName);
+		blogVo.setLogoFile("upload/" + saveName);
 		
 		//vo --> dao DB저장
 		int count = blogDao.upload(blogVo);
