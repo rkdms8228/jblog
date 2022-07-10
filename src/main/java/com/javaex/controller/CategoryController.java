@@ -1,16 +1,21 @@
 package com.javaex.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.javaex.service.BlogService;
 import com.javaex.service.CategoryService;
+import com.javaex.vo.CategoryVo;
 
 @Controller
 public class CategoryController {
@@ -39,6 +44,39 @@ public class CategoryController {
 		model.addAttribute("blogMap", blogMap);
 		
 		return "blog/admin/blog-admin-cate";
+		
+	}
+	
+	//카테고리 리스트
+	@ResponseBody
+	@RequestMapping(value="/{id}/admin/categoryList", method= {RequestMethod.POST, RequestMethod.GET})
+	public List<CategoryVo> categoryList(Model model, @PathVariable String id) {
+		
+		System.out.println("CategoryController > categoryList");
+		
+		return categoryService.categoryList(id);
+		
+	}
+	
+	//카테고리 추가
+	@ResponseBody
+	@RequestMapping(value="/{id}/admin/categoryAdd", method= {RequestMethod.POST, RequestMethod.GET})
+	public CategoryVo categoryAdd(@RequestBody CategoryVo cateVo) {
+		
+		System.out.println("CategoryController > categoryAdd");
+		
+		return categoryService.categoryAdd(cateVo);
+		
+	}
+	
+	//카테고리 삭제
+	@ResponseBody
+	@RequestMapping(value="/{id}/admin/categoryDelete", method= {RequestMethod.POST, RequestMethod.GET})
+	public String categoryDelete(@ModelAttribute CategoryVo cateVo) {
+		
+		System.out.println("CategoryController->categoryDelete()");
+		
+		return categoryService.categoryDelete(cateVo);
 		
 	}
 
