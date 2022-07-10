@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="category">
+
+	<!-- 카테고리 리스트 -->
+	<select id="categoryList" parameterType="String" resultType="CategoryVo">
+		<![CDATA[
+			select c.cateNo
+			        , c.cateName
+			        , description
+			        , p.postCnt
+			from category c, (select cateNo
+			                         , count(postNo) postCnt
+			               	  from post
+			                  group by cateNo)p
+			where c.cateNo = p.cateNo(+)
+			and c.id = #{id}
+			order by c.regDate desc
+		]]>
+	</select>
+	
+	<!-- 카테고리 추가 -->
+	<insert id="categoryAdd" parameterType="CategoryVo">
+		<selectKey keyProperty="cateNo" resultType="int" order="BEFORE">
+			select SEQ_CATEGORY_NO.nextval from dual
+		</selectKey>
+		<![CDATA[
+			insert into category
+			values(#{cateNo}, #{id}, #{cateName}, #{description}, SYSDATE)
+		]]>
+	</insert>
+	
+	<!-- 카테고리 추가(1개 정보 가져오기) -->
+	<select id="categoryOne" parameterType="int" resultType="CategoryVo">
+		<![CDATA[
+			select  cateNo
+			        , cateName
+			        , description
+			        , p.count
+			from category, (select count(postNo) count
+			                from post p, category c
+			                where c.cateNo = p.cateNo)p
+			where cateNo = #{cateNo}
+			order by regDate desc
+		]]>
+	</select>
+	
+	<!-- 카테고리 삭제 -->
+	<delete id="categoryDelete" parameterType="CategoryVo">
+		<![CDATA[
+			delete category
+			where cateNo = #{cateNo}
+		]]>
+	</delete>
+
+</mapper>
