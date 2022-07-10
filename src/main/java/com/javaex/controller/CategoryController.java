@@ -18,6 +18,7 @@ import com.javaex.service.CategoryService;
 import com.javaex.vo.CategoryVo;
 
 @Controller
+@RequestMapping(value="/{id}/admin")
 public class CategoryController {
 	
 	//필드
@@ -34,7 +35,7 @@ public class CategoryController {
 	
 	//메소드-일반
 	//회원가입폼
-	@RequestMapping(value="/{id}/admin/category", method={RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/category", method={RequestMethod.GET, RequestMethod.POST})
 	public String category(Model model, @PathVariable String id) {
 		
 		System.out.println("CategoryController > category");
@@ -49,7 +50,7 @@ public class CategoryController {
 	
 	//카테고리 리스트
 	@ResponseBody
-	@RequestMapping(value="/{id}/admin/categoryList", method= {RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value="/categoryList", method= {RequestMethod.POST, RequestMethod.GET})
 	public List<CategoryVo> categoryList(Model model, @PathVariable String id) {
 		
 		System.out.println("CategoryController > categoryList");
@@ -60,7 +61,7 @@ public class CategoryController {
 	
 	//카테고리 추가
 	@ResponseBody
-	@RequestMapping(value="/{id}/admin/categoryAdd", method= {RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value="/categoryAdd", method= {RequestMethod.POST, RequestMethod.GET})
 	public CategoryVo categoryAdd(@RequestBody CategoryVo categoryVo) {
 		
 		System.out.println("CategoryController > categoryAdd");
@@ -71,7 +72,7 @@ public class CategoryController {
 	
 	//카테고리 삭제
 	@ResponseBody
-	@RequestMapping(value="/{id}/admin/categoryDelete", method= {RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value="/categoryDelete", method= {RequestMethod.POST, RequestMethod.GET})
 	public String categoryDelete(@ModelAttribute CategoryVo categoryVo) {
 		
 		System.out.println("CategoryController->categoryDelete()");
