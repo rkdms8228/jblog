@@ -99,7 +99,7 @@
 		$.ajax({
 			
 			//보낼 때
-			url : "${pageContext.request.contextPath}/${authUser.id}/admin/getcategory",
+			url : "${pageContext.request.contextPath}/${authUser.id}/admin/categoryList",
 			type : "post",
 			//contentType : "application/json",
 			//data : {name: "홍길동"},
@@ -162,7 +162,7 @@
 		$.ajax({
 			
 			//보낼 때
-			url : "${pageContext.request.contextPath }/${authUser.id}/admin/cateAdd",
+			url : "${pageContext.request.contextPath }/${authUser.id}/admin/categoryAdd",
 			type : "post",
 			contentType : "application/json",
 			data : JSON.stringify(categoryVo),
@@ -201,7 +201,7 @@
 		$.ajax({
 			
 			//보낼 때
-			url : "${pageContext.request.contextPath }/${authUser.id}/admin/cateDelete",
+			url : "${pageContext.request.contextPath }/${authUser.id}/admin/categoryDelete",
 			type : "post",
 			//contentType : "application/json",
 			data : categoryVo,
