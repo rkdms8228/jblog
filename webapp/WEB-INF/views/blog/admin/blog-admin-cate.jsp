@@ -184,7 +184,7 @@
 		});
 	});
 	
-	/* 카테고리 삭제 */
+	/* 카테고리 삭제 버튼 클릭했을 때 */
 	$("#cateList").on("click", ".btnCateDel", function() {
 		
 		console.log("삭제버튼");
