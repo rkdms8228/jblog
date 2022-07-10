@@ -97,6 +97,8 @@
 	/* 카테고리 리스트 요청 */
 	function fetchList() {
 		
+		console.log("fetchList");
+		
 		$.ajax({
 			
 			//보낼 때
@@ -163,7 +165,7 @@
 		$.ajax({
 			
 			//보낼 때
-			url : "${pageContext.request.contextPath }/${authUser.id}/admin/categoryAdd",
+			url : "${pageContext.request.contextPath}/${authUser.id}/admin/categoryAdd",
 			type : "post",
 			contentType : "application/json",
 			data : JSON.stringify(categoryVo),
@@ -178,6 +180,7 @@
 				
 				$("[name=name]").val("");
 				$("[name=desc]").val("");
+				
 			},
 			error : function(XHR, status, error) {
 				console.error(status + " : " + error);
@@ -195,14 +198,14 @@
 		var postCnt = $this.data("postcnt");
 		
 		var categoryVo = {
-				cateNo: no
-				, postCnt: postCnt
+			cateNo: no
+			, postCnt: postCnt
 		}
 		
 		$.ajax({
 			
 			//보낼 때
-			url : "${pageContext.request.contextPath }/${authUser.id}/admin/categoryDelete",
+			url : "${pageContext.request.contextPath}/${authUser.id}/admin/categoryDelete",
 			type : "post",
 			//contentType : "application/json",
 			data : categoryVo,
@@ -211,13 +214,13 @@
 			//dataType : "json",
 			success : function(result){
 				
-				/*성공시 처리해야될 코드 작성*/
+				/*성공시 처리해야 될 코드 작성*/
 				console.log(result);
 				
 				if(result == "success") {
 					$("#cate"+no).remove();
 				} else {
-					alert('삭제할 수 없습니다.');
+					alert("삭제할 수 없습니다.");
 				}
 				
 			},
