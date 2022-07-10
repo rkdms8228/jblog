@@ -32,11 +32,11 @@ public class CategoryDao {
 	}
 	
 	//카테고리 추가
-	public int categoryAdd(CategoryVo cateVo) {
+	public int categoryAdd(CategoryVo categoryVo) {
 		
 		System.out.println("CategoryDao > categoryAdd");
 		
-		return sqlSession.insert("category.categoryAdd", cateVo);
+		return sqlSession.insert("category.categoryAdd", categoryVo);
 		
 	}
 
@@ -50,11 +50,11 @@ public class CategoryDao {
 	}
 	
 	//카테고리 삭제
-	public int categoryDelete(CategoryVo cateVo) {
+	public int categoryDelete(CategoryVo categoryVo) {
 		
 		System.out.println("CategoryDao > categoryDelete");
 		
-		return sqlSession.delete("category.categoryDelete", cateVo);
+		return sqlSession.delete("category.categoryDelete", categoryVo);
 		
 	}
 

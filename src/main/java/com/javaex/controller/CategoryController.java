@@ -61,22 +61,22 @@ public class CategoryController {
 	//카테고리 추가
 	@ResponseBody
 	@RequestMapping(value="/{id}/admin/categoryAdd", method= {RequestMethod.POST, RequestMethod.GET})
-	public CategoryVo categoryAdd(@RequestBody CategoryVo cateVo) {
+	public CategoryVo categoryAdd(@RequestBody CategoryVo categoryVo) {
 		
 		System.out.println("CategoryController > categoryAdd");
 		
-		return categoryService.categoryAdd(cateVo);
+		return categoryService.categoryAdd(categoryVo);
 		
 	}
 	
 	//카테고리 삭제
 	@ResponseBody
 	@RequestMapping(value="/{id}/admin/categoryDelete", method= {RequestMethod.POST, RequestMethod.GET})
-	public String categoryDelete(@ModelAttribute CategoryVo cateVo) {
+	public String categoryDelete(@ModelAttribute CategoryVo categoryVo) {
 		
 		System.out.println("CategoryController->categoryDelete()");
 		
-		return categoryService.categoryDelete(cateVo);
+		return categoryService.categoryDelete(categoryVo);
 		
 	}
 

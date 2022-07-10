@@ -32,24 +32,24 @@ public class CategoryService {
 	}
 	
 	//카테고리 추가
-	public CategoryVo categoryAdd(CategoryVo cateVo) {
+	public CategoryVo categoryAdd(CategoryVo categoryVo) {
 		
 		System.out.println("CategoryService > categoryAdd");
 		
-		categoryDao.categoryAdd(cateVo);
+		categoryDao.categoryAdd(categoryVo);
 		
-		return categoryDao.categoryOne(cateVo.getCateNo());
+		return categoryDao.categoryOne(categoryVo.getCateNo());
 	}
 
 	//카테고리 삭제
-	public String categoryDelete(CategoryVo cateVo) {
+	public String categoryDelete(CategoryVo categoryVo) {
 		
 		System.out.println("CategoryService > categoryDelete");
 		
-		if(cateVo.getPostCnt() != 0) {	
+		if(categoryVo.getPostCnt() != 0) {	
 			return "fail";
 		}else {
-			int count = categoryDao.categoryDelete(cateVo);
+			int count = categoryDao.categoryDelete(categoryVo);
 			
 			if(count < 0) {
 				return "fail";
