@@ -26,7 +26,7 @@
 			<!-- //admin-menu -->
 			
 			<div id="admin-content">
-				<form action="" method="">
+				<form action="${pageContext.request.contextPath}/${authUser.id}/admin/write" method="get">
 			      	<table id="admin-write">
 			      		<colgroup>
 							<col style="width: 100px;">
@@ -35,14 +35,15 @@
 						</colgroup>
 			      		<tr>
 			      			<td class="t">포스트 제목</td>
-			      			<td >
+			      			<td>
 			      				<input type="text" name="postTitle">
 				      		</td>
 				      		<td>
 				      			<select name="cateNo">
 				      				<!-- 카테고리 리스트 영역 -->
-				      				<option value="">자바프로그래밍</option>
-				      				<option value="">오라클</option>
+				      				<c:forEach items="${blogMap.categoryList}" var="CategoryVo">
+				      					<option value="${CategoryVo.cateNo}">${CategoryVo.cateName}</option>
+				      				</c:forEach>
 				      				<!-- 카테고리 리스트 영역 -->
 				      			</select>
 				      		</td>
