@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.javaex.dao.BlogDao;
+import com.javaex.dao.CategoryDao;
 import com.javaex.vo.BlogVo;
 
 @Service
@@ -21,6 +22,8 @@ public class BlogService {
 	//필드
 	@Autowired
 	private BlogDao blogDao;
+	@Autowired
+	private CategoryDao categoryDao;
 		
 	//생성자
 	
@@ -36,6 +39,7 @@ public class BlogService {
 		
 		Map<String, Object> blogMap = new HashMap<String, Object>();
 		blogMap.put("blogVo", blogDao.main(id));
+		blogMap.put("categoryList", categoryDao.postList(id));
 		
 		return blogMap;
 		
