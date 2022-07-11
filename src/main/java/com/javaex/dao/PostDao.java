@@ -20,6 +20,8 @@ public class PostDao {
 	
 	
 	//메소드-일반
+	
+	
 	//글 추가하기
 	public int write(PostVo postVo) {
 		
