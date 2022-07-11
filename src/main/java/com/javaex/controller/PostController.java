@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.javaex.service.BlogService;
 import com.javaex.service.PostService;
 import com.javaex.vo.PostVo;
 
@@ -19,8 +18,6 @@ import com.javaex.vo.PostVo;
 public class PostController {
 	
 	//필드
-	@Autowired
-	private BlogService blogService;
 	@Autowired
 	private PostService postService;
 	
@@ -38,7 +35,7 @@ public class PostController {
 		System.out.println("PostController > writeForm");
 		
 		//해더 이름 띄우기
-		Map<String, Object> blogMap = blogService.main(id);
+		Map<String, Object> blogMap = postService.postList(id);
 		model.addAttribute("blogMap", blogMap);
 		
 		return "blog/admin/blog-admin-write";
@@ -53,7 +50,7 @@ public class PostController {
 		
 		postService.write(postVo);
 		
-		return "redirect:/blog/admin/blog-admin-write";
+		return "redirect:/{id}/admin/writeForm";
 	}
 
 }
