@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
 <!DOCTYPE html>
 <html>
@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>JBlog</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/jblog.css">
-
+<script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/jquery/jquery-1.12.4.js"></script>
 
 </head>
 
@@ -133,15 +133,15 @@
 		console.log("render");
 		
 		var str = "";
-		str += "<tr id='cate"+categoryVo.cateNo+"'>";
-		str += "	<td>"+categoryVo.cateNo+"</td>";
-		str += "	<td>"+categoryVo.cateName+"</td>";
-		str += "	<td>"+categoryVo.postCnt+"</td>";
-		str += "	<td>"+categoryVo.description+"</td>";
-		str += "	<td class='text-center'>";
-		str += "		<img data-no='"+categoryVo.cateNo+"' data-postcnt='"+categoryVo.postCnt+"' class='btnCateDel' src='${pageContext.request.contextPath}/assets/images/delete.jpg'>";
-		str += "	</td>";
-		str += "</tr>";
+		str += " <tr id='cate"+categoryVo.cateNo+"'> ";
+		str += " 	<td>"+categoryVo.cateNo+"</td> ";
+		str += " 	<td>"+categoryVo.cateName+"</td> ";
+		str += " 	<td>"+categoryVo.postCnt+"</td> ";
+		str += " 	<td>"+categoryVo.description+"</td> ";
+		str += " 	<td class='text-center'> ";
+		str += " 		<img data-no='"+categoryVo.cateNo+"' data-postcnt='"+categoryVo.postCnt+"' class='btnCateDel' src='${pageContext.request.contextPath}/assets/images/delete.jpg'> ";
+		str += " 	</td> ";
+		str += " </tr> ";
 		
 		$("#cateList").prepend(str);
 		
@@ -154,18 +154,18 @@
 		
 		var id = "${authUser.id}";
 		var cateName = $("[name=name]").val();
-		var desc = $("[name=desc]").val();
+		var description = $("[name=desc]").val();
 		
 		var categoryVo = {
 			id: id
 			, cateName: cateName
-			, description: desc
+			, description: description
 		}
 		
 		$.ajax({
 			
 			//보낼 때
-			url : "${pageContext.request.contextPath}/${authUser.id}/admin/categoryAdd",
+			url : "${pageContext.request.contextPath}/{id}/admin/categoryAdd",
 			type : "post",
 			contentType : "application/json",
 			data : JSON.stringify(categoryVo),
@@ -174,7 +174,7 @@
 			dataType : "json",
 			success : function(categoryVo){
 				
-				/*성공시 처리해야될 코드 작성*/
+				/*성공시 처리해야 될 코드 작성*/
 				console.log(categoryVo);
 				render(categoryVo);
 				
