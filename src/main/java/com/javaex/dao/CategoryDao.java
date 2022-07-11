@@ -57,5 +57,14 @@ public class CategoryDao {
 		return sqlSession.delete("category.categoryDelete", categoryVo);
 		
 	}
+	
+	//포스트 리스트
+	public List<CategoryVo> postList(String id) {
+		
+		System.out.println("CategoryDao > postList");
+		
+		return sqlSession.selectList("category.postList", id);
+		
+	}
 
 }
