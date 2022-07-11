@@ -24,20 +24,16 @@
 					<!-- 사용자업로드 이미지 -->
 					<img id="proImg" src="${pageContext.request.contextPath}/${blogMap.blogVo.logoFile}">
 					
-					<div id="nick">${authUser.userName}(${blogMap.blogVo.id}) 님</div>
+					<div id="nick">${authUser.userName}(${blogMap.blogVo.id})님</div>
 				</div>
 				<div id="cate">
 					<div class="text-left">
 						<strong>카테고리</strong>
 					</div>
 					<ul id="cateList" class="text-left">
-						<li><a href="$}">카테고리5</a></li>
-						<li><a href="$}">카테고리4</a></li>
-						<li><a href="$}">카테고리3</a></li>
-						<li><a href="$}">카테고리2</a></li>
-						<li><a href="$}">카테고리1</a></li>
-						<li><a href="$}">미분류</a></li>
-						
+						<c:forEach items="${blogMap.categoryList}" var="CategoryVo">
+							<li><a href="${pageContext.request.contextPath}/${blogMap.blogVo.id}?cateNo=${CategoryVo.id}">${CategoryVo.cateName}</a></li>
+	      				</c:forEach>					
 					</ul>
 				</div>
 			</div>
@@ -48,7 +44,7 @@
 				<div id="postBox" class="clearfix">
 						<div id="postTitle" class="text-left"><strong>08.페이징</strong></div>
 						<div id="postDate" class="text-left"><strong>2020/07/23</strong></div>
-						<div id="postNick">정우성(hijava)님</div>
+						<div id="postNick">${authUser.userName}(${blogMap.blogVo.id})님</div>
 				</div>
 				<!-- //postBox -->
 			
