@@ -43,7 +43,7 @@
 				
 				<div id="postBox" class="clearfix">
 						<div id="postTitle" class="text-left"><strong>08.페이징</strong></div>
-						<div id="postDate" class="text-left"><strong>2020/07/23</strong></div>
+						<div id="postDate" class="text-left"><strong>2022/07/07</strong></div>
 						<div id="postNick">${authUser.userName}(${blogMap.blogVo.id})님</div>
 				</div>
 				<!-- //postBox -->
